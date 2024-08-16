@@ -1392,7 +1392,7 @@ class TenchiCardsEnhancer(QtWidgets.QMainWindow):
             # 直接模板匹配图像
             result = cv2.matchTemplate(img, target_img, cv2.TM_CCOEFF_NORMED)
             min_value, max_value, min_loc, max_loc = cv2.minMaxLoc(result)
-            if max_value >= 0.90:
+            if max_value >= 0.99:
                 # 匹配成功，点击配方位置
                 x, y = max_loc
                 # 计算模板图像的中心偏上位置
