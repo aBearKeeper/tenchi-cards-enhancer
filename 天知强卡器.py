@@ -1573,9 +1573,6 @@ class TenchiCardsEnhancer(QtWidgets.QMainWindow):
     # 获取裁剪过的合成屋卡片图像
     def get_cut_cards_img(self, need_offset=False):
         img = self.get_image(559, 91, 343, 456)
-        cv2.imshow('Card Image', img)
-        cv2.waitKey(0)  # 等待按键
-        cv2.destroyAllWindows()  # 关闭窗口
         line_img = self.resources.line_img
         # 进行模板匹配
         result = cv2.matchTemplate(img, line_img, cv2.TM_CCOEFF_NORMED)
@@ -1589,10 +1586,6 @@ class TenchiCardsEnhancer(QtWidgets.QMainWindow):
                 if need_offset:
                     self.offset = y
                 break
-
-        cv2.imshow('Card Image', img)
-        cv2.waitKey(0)  # 等待按键
-        cv2.destroyAllWindows()  # 关闭窗口
         return img
 
     # 获取强化卡片字典
